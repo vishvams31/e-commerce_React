@@ -1,0 +1,56 @@
+.filters {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    /* Add border-radius for rounded corners */
+    transition: box-shadow 0.3s ease;
+}
+
+.filters:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Increase box-shadow on hover for a subtle effect */
+}
+
+.filters select {
+    width: 160px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    appearance: none;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    margin-left: 10px;
+    appearance: none;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+.filters select:hover {
+    border-color: #007bff;
+    box-shadow: 0 0 0 1px #007bff;
+}
+
+.filters select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 1px #007bff;
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    .filters {
+        flex-direction: column;
+    }
+
+    .filters select {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}

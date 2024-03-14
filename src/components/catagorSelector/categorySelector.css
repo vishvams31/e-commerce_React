@@ -1,0 +1,19 @@
+.category-selector select {
+    width: 250px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.category-selector select:focus {
+    border-color: #007bff;
+}
+
+.category-selector option {
+    padding: 10px;
+}

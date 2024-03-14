@@ -1,0 +1,70 @@
+/* myCart.css */
+
+.my-cart {
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    padding: 20px;
+    /* Use a readable font */
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 35px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding-bottom: 10px;
+}
+
+.my-cart ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.checkoutDiv {
+    justify-content: center;
+    display: flex;
+}
+
+.my-cart li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    /* Light background for each item */
+    transition: background-color 0.3s ease;
+    /* Smooth background color transition */
+}
+
+.my-cart .product-card-cart {
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+.my-cart p {
+    text-align: center;
+    color: #666;
+    /* Soft color for empty cart message */
+}
+
+.checkout-button {
+    /* position: absolute;   */
+    margin-left: 20px;
+    left: 16px;
+    bottom: 16px;
+    padding: 8px 16px;
+    background-color: #6ecc09;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-button:hover {
+    background-color: #0e9a04;
+}
