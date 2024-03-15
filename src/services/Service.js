@@ -66,55 +66,6 @@ export const handleClick = async (data, navigate) => {
     }
 };
 
-
-//update userInformation
-export const updateUser = (values, user) => {
-    const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-    const userIndex = storedUsers.findIndex(u => u.id === user.id);
-
-    if (userIndex !== -1) {
-        const updatedUser = {
-            ...user,
-            firstname: values.firstname,
-            lastname: values.lastname,
-            email: values.email,
-            mobilenumber: values.mobilenumber,
-        };
-        storedUsers[userIndex] = updatedUser;
-        localStorage.setItem('users', JSON.stringify(storedUsers));
-        localStorage.setItem('user', JSON.stringify(updatedUser));
-        toast.success(message.SUCCESS_UPDATE);
-    } else {
-        toast.error(message.USER_BOT_FOUND);
-    }
-};
-
-//change Password
-export const changePassword = (newPassword, user) => {
-    const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-    const userIndex = storedUsers.findIndex(u => u.id === user.id);
-
-    if (userIndex !== -1) {
-        const salt = bcrypt.genSaltSync(10);
-        const hashedNewPassword = bcrypt.hashSync(newPassword, salt);
-        const updatedUser = {
-            ...user,
-            password: hashedNewPassword,
-        };
-        storedUsers[userIndex] = updatedUser;
-        localStorage.setItem('users', JSON.stringify(storedUsers));
-
-        // Update the current user's object in local storage 
-        const currentUser = JSON.parse(localStorage.getItem('user'));
-        if (currentUser && currentUser.id === user.id) {
-            localStorage.setItem('user', JSON.stringify(updatedUser));
-        }
-
-        toast.success(message.SUCCESS_PASSWORD);
-    } else {
-        toast.error(message.USER_BOT_FOUND);
-    }
-};
 //upon update check email is unique
 export const checkEmailUniqueness = (email) => {
     try {
@@ -130,7 +81,7 @@ export const checkEmailUniqueness = (email) => {
 };
 async function searchProductIdByTitle(title) {
     try {
-        const response = await fetch('https://fakestoreapi.com/products');
+        const response = await fetch(`${API_BASE_URL}/products`);
         const products = await response.json();
         const product = products.find(p => p.title.toLowerCase() === title.toLowerCase());
         return product ? product.id : null;
@@ -141,7 +92,7 @@ async function searchProductIdByTitle(title) {
 }
 async function fetchProductDetails(id) {
     try {
-        const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+        const response = await fetch(`${API_BASE_URL}/products/${id}`);
         const product = await response.json();
         return product;
     } catch (error) {
@@ -152,7 +103,7 @@ async function fetchProductDetails(id) {
 export async function searchProductByTitle(title) {
     const productId = await searchProductIdByTitle(title);
     if (!productId) {
-        console.log("Product not found.");
+        toast.error("product does not exist")
         return null;
     }
     const productDetails = await fetchProductDetails(productId);

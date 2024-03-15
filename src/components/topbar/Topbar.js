@@ -7,7 +7,6 @@ import CategorySelector from '../catagorSelector/CatagorySelector';
 import './topbar.css'
 import CircularProgress from '@mui/material/CircularProgress';
 
-
 export default function Topbar({ cart }) {
     const [searchResults, setSearchResults] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
@@ -56,18 +55,20 @@ export default function Topbar({ cart }) {
                             </div>
                         </div>)}
                     </form>
-
-                    <ul className="navbar-nav mr-auto">
+                    <ul className="navbar-nav ml-auto">
                         <li className="nav-item active">
                             <Link to={user ? `/profile/${user.firstname}` : '/register'} style={{ textDecoration: "none", color: "white" }}>
                                 <a className="nav-link">Profile</a>
                             </Link>
                         </li>
-                    </ul>
-                    <ul className="navbar-nav mr-auto">
                         <li className="nav-item active">
                             <Link to={'/mycart'} style={{ textDecoration: "none", color: "white" }}>
                                 <a className="nav-link" >My Cart</a>
+                            </Link>
+                        </li>
+                        <li className="nav-item active">
+                            <Link to={'/register'} style={{ textDecoration: "none", color: "white" }}>
+                                <a className="nav-link" >Register</a>
                             </Link>
                         </li>
                     </ul>

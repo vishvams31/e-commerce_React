@@ -35,9 +35,7 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     background-color: #f9f9f9;
-    /* Light background for each item */
     transition: background-color 0.3s ease;
-    /* Smooth background color transition */
 }
 
 .my-cart .product-card-cart {
@@ -48,7 +46,6 @@
 .my-cart p {
     text-align: center;
     color: #666;
-    /* Soft color for empty cart message */
 }
 
 .checkout-button {

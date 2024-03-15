@@ -4,7 +4,6 @@ export const loginStart = () => ({
     type: 'LOGIN_START',
 });
 export const loginSuccess = (authUser) => (dispatch) => {
-    // console.log(authUser)
     dispatch({
         type: 'LOGIN_SUCCESS',
         payload: authUser
@@ -39,6 +38,7 @@ export const loginCall = (userCredentials, navigate) => async (dispatch) => {
             }
         } else {
             dispatch(loginFailure('Invalid email'));
+            toast.error("user does not exist")
         }
     } catch (err) {
         dispatch(loginFailure(err.message));

@@ -10,13 +10,11 @@ const message = {
     ERR_UPDATE: "Failed to update user:",
     SUCCESS_PASSWORD: "Password changed successfully",
     SUCCESS_REGISTER: "successfully registered",
-    ERR_PRODUCT_DETAILS: "Failed to fetch product details:",
     ERR_USER_DETAILS: "Failed to fetch user details:",
     ERR_PRODUCTS: "Failed to fetch products:",
     ERR_NETWORK: "Network response was not ok",
     ERR_EMAIL_UNIQUE: "Failed to check email uniqueness:",
     ERR_PASSWORD_SAME: "New password cannot be the same",
-    ERR_PASSWORD_WRONG: "Current password is incorrect.",
     ERR_SAME_EMAIL: "You have entered the same email"
 }
 

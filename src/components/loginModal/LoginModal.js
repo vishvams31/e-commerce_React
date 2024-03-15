@@ -2,17 +2,20 @@
 import React from 'react';
 import './loginModal.css'
 
-const Modal = ({ isOpen, onClose, children, title }) => {
-    if (!isOpen) return null;
+const LoginModal = ({ isOpen, onClose, children }) => {
+    if (!isOpen) {
+        return null;
+    }
 
     return (
-        <div className="modal-overlay" onClick={onClose}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                {title && <h2>{title}</h2>}
+        <div className="login-modal-overlay">
+            <div className="login-modal">
                 {children}
+                <button onClick={onClose}>Close</button>
             </div>
         </div>
+
     );
 };
 
-export default Modal;
+export default LoginModal;
